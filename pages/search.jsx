@@ -7,7 +7,7 @@ import SearchFilters from '../components/SearchFilters'
 import Property from "../components/Property.jsx"
 import { baseUrl, fetchApi } from '../utils/fetchApi'
 
-function search({ properties }) {
+function Search({ properties }) {
     const [searchFilters, setSearchFilters] = useState(false)
     const router = useRouter()
 
@@ -77,4 +77,4 @@ export async function getServerSideProps({ query,  }) {
 }
   
 
-export default search
+export default Search
