@@ -1,11 +1,14 @@
-import React from 'react'
 import Link from 'next/link'
-import { Menu, MenuButton, MenuList, MenuItem, Button, IconButton, Flex, Box, Spacer, Icon } from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList, MenuItem, Button, IconButton, Flex, Box, Spacer, useColorMode } from '@chakra-ui/react'
 import { FcMenu, FcHome, FcAbout } from 'react-icons/fc'
-import { BsSearch } from 'react-icons/bs'
+import { BsSearch, BsMoonStarsFill, BsSunFill } from 'react-icons/bs'
 import { FiKey } from 'react-icons/fi'
 
 function Navbar() {
+
+    const { colorMode, toggleColorMode } = useColorMode()
+    const isDark = colorMode === 'dark';
+
   return (
     <Flex p="2" borderBottom="1px" borderColor="blue.400" >
         <Box fontSize="3xl" color="blue.400" fontWeight="bold">
@@ -14,14 +17,21 @@ function Navbar() {
             </Link>
         </Box>
         <Spacer />
-        <Box marginRight="2" color="blue.800">
+            <IconButton 
+            onClick={toggleColorMode} 
+            icon={isDark ? <BsMoonStarsFill /> : <BsSunFill />}
+            color={isDark ? "cyan.600" : "blue.800"}
+            cursor="pointer" marginX="2" 
+            padding="3"
+            />
+        <Box marginRight="2" color={isDark ? "cyan.600" : "blue.800"}>
             <Link href="/search" passHref >
                 <Button rightIcon={<BsSearch />}>Search Properties</Button>
             </Link>
         </Box>
         <Box>
             <Menu>
-                <MenuButton as={IconButton} icon={<FcMenu />} variant="outlined" color="red.400" />
+                <MenuButton as={IconButton} icon={<FcMenu />} variant="outlined" color={isDark ? "cyan.600" : "blue.800"} />
                 <MenuList border="0.5px solid" borderColor="gray.300" >
                     <Link href="/" passHref >
                         <MenuItem icon={<FcHome />}>Home</MenuItem>

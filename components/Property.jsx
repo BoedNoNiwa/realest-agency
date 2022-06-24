@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { Box, Flex, Text, Avatar } from '@chakra-ui/react'
 import { FaBed, FaBath } from 'react-icons/fa'
 import { BsGridFill } from 'react-icons/bs'
@@ -9,7 +10,8 @@ import millify from 'millify'
 export default function Property({ property: {coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID} }) {
     return (
         <Link href={`/property/${externalID}`} passHref>
-            <Flex flexWrap="wrap" w="420px" p="5" paddingTop="0" justifyContent="flex-start" cursor="pointer" margin="auto">
+            <Flex as={motion.div} whileHover={{scale: 1.05}} whileTap={{scale: 1}}
+            flexWrap="wrap" w="420px" p="5" paddingTop="0" justifyContent="flex-start" cursor="pointer" margin="auto">
                 <Box>
                     <Image 
                     src={coverPhoto? coverPhoto.url : "https://cdn.discordapp.com/attachments/716689021895573647/966894260022575104/mehiko.png"} 

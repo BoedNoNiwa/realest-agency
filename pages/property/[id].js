@@ -26,7 +26,7 @@ export default function PropertyDetails({ propertyDetails: { price, rentFrequenc
                     <Text fontSize="lg" fontWeight="bold" marginBottom="2" >
                         {title}
                     </Text>
-                    <Text lineHeight="2" color="gray.600">
+                    <Text lineHeight="2" color="gray.600" _dark={{color: "gray.100"}}>
                         {description}
                     </Text>
                 </Box>
