@@ -15,7 +15,7 @@ export default function Property({ property: {coverPhoto, price, rentFrequency, 
                 <Box>
                     <Image 
                     src={coverPhoto? coverPhoto.url : "https://cdn.discordapp.com/attachments/716689021895573647/966894260022575104/mehiko.png"} 
-                    alt="House"
+                    alt={coverPhoto.title}
                     width={400}
                     height={200}
                     />
@@ -27,7 +27,7 @@ export default function Property({ property: {coverPhoto, price, rentFrequency, 
                             <Text fontWeight="bold" fontSize="large">AED {millify(price)}{rentFrequency && `/${rentFrequency}`} </Text>
                         </Flex>
                         <Box>
-                            <Avatar size="md" src={agency?.logo?.url} border="1px solid" />
+                            <Avatar size="md" src={agency?.logo?.url} alt={agency?.name} border="1px solid" />
                         </Box>
                     </Flex>
                     <Flex alignItems="center" p="1" justifyContent="space-between" w="250px" color="blue.400" >
